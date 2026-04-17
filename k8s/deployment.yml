@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auth-system
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auth-system
+  template:
+    metadata:
+      labels:
+        app: auth-system
+    spec:
+      containers:
+      - name: auth-system
+        image: swathi0103/password-reset-app:latest
+        ports:
+        - containerPort: 8080
